@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.dell"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="8" />
+    
+    <application android:icon="@drawable/mailportal" android:label="@string/app_name">
+        <activity android:name="com.dell.MailPortalActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		
+		<activity android:name=".DellEmailActivity"
+                  android:label="@string/dellmail">
+        </activity>
+        
+        <activity android:name=".GmailActivity"
+                  android:label="@string/gmail">
+        </activity>
+        
+        <uses-library android:name="android.test.runner" />
+    </application>
+    
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.dell"
+        android:label="Test cases for Dell Portal project.">
+    </instrumentation>
+    
+   <!-- sdcard permission --> 
+　　<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+   <uses-permission android:name="android.permission.INTERNET" />
+</manifest>
