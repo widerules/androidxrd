@@ -46,7 +46,7 @@ public class DellEmailActivity extends Activity {
         myWebView = (WebView) findViewById(R.id.webView1);
         myWebView.setPadding(0, 0, 0, 0);
         myWebView.setInitialScale(60);
-        
+        myWebView.setWebViewClient(new WebViewClient()); // Danio checked-in to resolve open window in browser issue
         
         /**
          * To bind the JavaScript Class which will be used. 
