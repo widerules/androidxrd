@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg1"
+    >
+    <LinearLayout
+    	android:orientation="horizontal"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content">
+    	
+    	<Button
+    		android:id="@+id/fart"
+    		android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/fart"
+			android:drawableTop="@drawable/fart_logo">
+		</Button>
+		<ImageButton  
+			android:id="@+id/banger"
+			android:src="@drawable/icon"
+			android:clickable="true"
+    		android:layout_width="wrap_content" 
+    		android:layout_height="wrap_content" 
+    		android:label=""
+			/>
+
+		<ImageButton  
+			android:id="@+id/alarm"
+			android:src="@drawable/icon"
+			android:clickable="true"
+    		android:layout_width="wrap_content" 
+    		android:layout_height="wrap_content" 
+    		android:label=""
+			/>
+		<ImageButton  
+			android:id="@+id/brokenscreen"
+			android:src="@drawable/icon"
+			android:clickable="true"
+    		android:layout_width="wrap_content" 
+    		android:layout_height="wrap_content" 
+    		android:label=""
+			/>
+	</LinearLayout>
+	<LinearLayout
+    	android:orientation="horizontal"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content">
+    	
+		<ImageButton  
+			android:id="@+id/cockroach"
+			android:src="@drawable/icon"
+			android:clickable="true"
+    		android:layout_width="wrap_content" 
+    		android:layout_height="wrap_content" 
+    		android:label=""
+			/>
+
+		<ImageButton  
+			android:id="@+id/ghost"
+			android:src="@drawable/icon"
+			android:clickable="true"
+    		android:layout_width="wrap_content" 
+    		android:layout_height="wrap_content" 
+    		android:label=""
+		/>    	
+	</LinearLayout>
+</LinearLayout>
