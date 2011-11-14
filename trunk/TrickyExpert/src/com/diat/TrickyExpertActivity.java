@@ -36,42 +36,36 @@ public class TrickyExpertActivity extends Activity {
         ghost = (ImageButton) findViewById(R.id.ghost);
         
         fart.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				gotoFart();
 			}
 		});
         
         banger.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 //				gotoBanger();
 			}
 		});
         
         alarm.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 //				gotoAlarm();
 			}
 		});
         
         brokenscreen.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 //				gotoBrokenscreen();
 			}
 		});
         
         cockroach.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 //				gotoCockroach();
 			}
 		});
         
         ghost.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 //				gotoGhost();
 			}

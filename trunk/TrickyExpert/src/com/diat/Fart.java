@@ -68,7 +68,6 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 		
 		timer = new Timer();
 		timerHandler = new Handler() {
-			@Override
 			public void handleMessage(Message msg) {
 				fartAnimation.start();
 				sf.jucieFart();
@@ -76,7 +75,6 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 		};
 		
 		normal_fart.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				fartAnimation.start();
 				sf.normalFart();
@@ -84,7 +82,6 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 		});
 		
 		juicy_fart.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				fartAnimation.start();
 				sf.jucieFart();
@@ -92,7 +89,6 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 		});
 		
 		long_fart.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				fartAnimation.start();
 				sf.longFart();
@@ -100,7 +96,6 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 		});
 		
 		delay.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				LayoutInflater inflater = getLayoutInflater();
 				final View dialog = inflater.inflate(R.layout.fartdelay, null);
@@ -153,7 +148,6 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 	 * 11-08 15:47:56.402: ERROR/MP3Extractor(34): Unable to resync. Signalling end of stream.
 	 * 11-08 15:47:57.882: WARN/SoundPool(2076):   sample 4 not READY
 	 */
-	@Override
 	public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
 		Message msg = mHandler.obtainMessage(sf.getPlaying());
 		msg.arg1 = sampleId;
