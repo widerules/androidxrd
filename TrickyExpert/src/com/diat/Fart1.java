@@ -34,7 +34,6 @@ public class Fart1 extends Activity{
 	    initMediaPlayer();
 		
 		start.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				playSound();
 			}
