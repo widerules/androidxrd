@@ -3,6 +3,8 @@
     <string name="app_name">整蛊专家</string>
     <string name="fart">放屁</string>
     <string name="start">开始</string>
+    <string name="pause">暂停</string>
+    <string name="resume">继续</string>
     <string name="delay">设置延时</string>
     <string name="selfdefined_delay">自定义延时</string>
     <string name="submit">确定</string>
