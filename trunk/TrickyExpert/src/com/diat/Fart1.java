@@ -1,9 +1,9 @@
 package com.diat;
 
 
+import com.diat.audio.LongSoundEffect;
+
 import android.app.Activity;
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,73 +20,51 @@ public class Fart1 extends Activity{
 	public static final String TAG = "Tricky Expert";
 	
 	private Button start;
+	private Button pause;
+	private Button resume;
 	
-	public static final int SOUND_NORMAL_FART = 1;
-	public static final int SOUND_LONG_FART = 2;
-	public static final int SOUND_JUICY_FART = 3;
-	private MediaPlayer mp;
+	private LongSoundEffect instance;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fart);
-		start = (Button) findViewById(R.id.long_fart);
+		setContentView(R.layout.fart1);
+		start = (Button) findViewById(R.id.start);
+		pause = (Button) findViewById(R.id.pause);
+		resume = (Button) findViewById(R.id.resume);
 		
-	    initMediaPlayer();
+		instance = new LongSoundEffect() ;
 		
 		start.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
-				playSound();
+				try {
+					instance.playAudio(LongSoundEffect.DEFAULT_AUDIO_PATH);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		pause.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {				
+				instance.pauseAudio();
+			}
+		});
+		
+		resume.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				instance.resumeAudio();
 			}
 		});
 	}
 	
-	public void handleControlButtonClick(){
-    	if(!mp.isPlaying()){
-			this.playSound();
-		}else{
-			this.stopSound();
-		}
-	}
-	
-	private void initMediaPlayer(){
-		mp = MediaPlayer.create(this, R.raw.juice_fart);
-		mp.setOnCompletionListener(new OnCompletionListener(){
-			public void onCompletion(MediaPlayer player){
-				releaseMediaPlayer();
-			}
-		});
-	}
-	
-	private void playSound(){
-    	releaseMediaPlayer();
-    	initMediaPlayer();
-    	mp.start();
-	}
-	
-    private void stopSound(){
-    	mp.stop();
-    }
-	
-	private void releaseMediaPlayer(){
-    	if(mp != null){
-    		mp.release();
-    		mp = null;
-    	}
-    }
 	
 	@Override
     protected void onDestroy(){
     	super.onDestroy();
-    	releaseMediaPlayer();
+    	instance.killMediaPlayer();
     }
 	
-//	public void normalFart() {
-//	    playSound(SOUND_NORMAL_FART);
-//	}
-//	public void longFart() {
-//	    playSound(SOUND_LONG_FART);
-//	}
-//	public void juicyFart() {
-//	    playSound(SOUND_JUICY_FART);
-//	}
 }
