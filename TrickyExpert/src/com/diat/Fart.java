@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.diat.audio.SoundEffect;
+import com.diat.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -30,6 +31,9 @@ import android.media.SoundPool;
 public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 
 	public static final String TAG = "Tricky Expert";
+	public static final int SOUND_NORMAL_FART = 1;
+	public static final int SOUND_LONG_FART = 2;
+	public static final int SOUND_JUICY_FART = 3;
 	
 	private Button normal_fart;
 	private Button juicy_fart;
@@ -39,7 +43,7 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 //	private Button cancel;
 	private ImageView fartImages;
 	private AnimationDrawable fartAnimation;
-	private SoundEffect sf;
+	private SoundEffect sound;
 	
 	private Timer timer;
 	private TimerTask task;
@@ -63,35 +67,38 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 		fartAnimation = (AnimationDrawable) fartImages.getBackground();
 		
 		
-		sf = new SoundEffect(this);
-		sf.getSoundPool().setOnLoadCompleteListener(this);
+		sound = new SoundEffect(this);
+		sound.getSoundPool().setOnLoadCompleteListener(this);
+		sound.addSound(SOUND_NORMAL_FART, R.raw.normal_fart);
+		sound.addSound(SOUND_LONG_FART, R.raw.long_fart);
+		sound.addSound(SOUND_JUICY_FART, R.raw.juice_fart);
 		
 		timer = new Timer();
 		timerHandler = new Handler() {
 			public void handleMessage(Message msg) {
 				fartAnimation.start();
-				sf.jucieFart();
+				sound.playSound(SOUND_JUICY_FART);
 			}
 		};
 		
 		normal_fart.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				fartAnimation.start();
-				sf.normalFart();
+				sound.playSound(SOUND_NORMAL_FART);
 			}
 		});
 		
 		juicy_fart.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				fartAnimation.start();
-				sf.jucieFart();
+				sound.playSound(SOUND_JUICY_FART);
 			}
 		});
 		
 		long_fart.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				fartAnimation.start();
-				sf.longFart();
+				sound.playSound(SOUND_LONG_FART);
 			}
 		});
 		
@@ -132,15 +139,15 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 	}
 	@Override
 	protected void onDestroy() {
-		sf.getSoundPool().release();
-		sf.getSoundPool().stop(sf.getPlaying());
+		sound.getSoundPool().release();
+		sound.getSoundPool().stop(sound.getPlaying());
 		super.onDestroy();
 	}
 	
 	private class MyHandler extends Handler{
 		@SuppressWarnings("unused")
 		public void handlerMessage(Message msg){
-			sf.playSound(msg.what);
+			sound.playSound(msg.what);
 		}
 	}
 	/**
@@ -149,7 +156,7 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 	 * 11-08 15:47:57.882: WARN/SoundPool(2076):   sample 4 not READY
 	 */
 	public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-		Message msg = mHandler.obtainMessage(sf.getPlaying());
+		Message msg = mHandler.obtainMessage(sound.getPlaying());
 		msg.arg1 = sampleId;
 		mHandler.sendMessage(msg);
 	}
