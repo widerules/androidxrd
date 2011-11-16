@@ -22,7 +22,10 @@ public class LongSoundEffect {
 	}
 	
 	public void playAudio(String url) throws Exception{
-		killMediaPlayer();
+		if(mediaPlayer.isPlaying()){
+			mediaPlayer.stop();
+			mediaPlayer.start();
+		}
 		mediaPlayer.setDataSource(url);
 		mediaPlayer.prepare();
 		mediaPlayer.start();
