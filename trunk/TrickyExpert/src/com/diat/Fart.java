@@ -73,32 +73,87 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 		sound.addSound(SOUND_LONG_FART, R.raw.long_fart);
 		sound.addSound(SOUND_JUICY_FART, R.raw.juice_fart);
 		
+		//If there is a requirement that every different sound needs different delay time,
+		//we can set each sound a timer to implement it.
 		timer = new Timer();
-		timerHandler = new Handler() {
-			public void handleMessage(Message msg) {
-				fartAnimation.start();
-				sound.playSound(SOUND_JUICY_FART);
-			}
-		};
 		
 		normal_fart.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				timerHandler = new Handler() {
+					public void handleMessage(Message msg) {
+//						fartAnimation.start();
+						sound.playSound(SOUND_NORMAL_FART);
+					}
+				};
 				fartAnimation.start();
-				sound.playSound(SOUND_NORMAL_FART);
+				if(task == null){
+					sound.playSound(SOUND_NORMAL_FART);
+				}
+				else{
+					//schedule method in Timer can only execute one task for one time,
+					//so we need to create another same task.
+					task = new TimerTask(){
+						@Override
+						public void run() {
+							Message message = new Message();
+							message.what = Integer.parseInt(delayTime);
+							timerHandler.sendMessage(message);
+						}
+					};
+					timer.schedule(task, Integer.parseInt(delayTime)*1000);
+				}
 			}
 		});
 		
 		juicy_fart.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				timerHandler = new Handler() {
+					public void handleMessage(Message msg) {
+//						fartAnimation.start();
+						sound.playSound(SOUND_JUICY_FART);
+					}
+				};
 				fartAnimation.start();
-				sound.playSound(SOUND_JUICY_FART);
+				if(task == null){
+					sound.playSound(SOUND_JUICY_FART);
+				}
+				else{
+					task = new TimerTask(){
+						@Override
+						public void run() {
+							Message message = new Message();
+							message.what = Integer.parseInt(delayTime);
+							timerHandler.sendMessage(message);
+						}
+					};
+					timer.schedule(task, Integer.parseInt(delayTime)*1000);
+				}
 			}
 		});
 		
 		long_fart.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				timerHandler = new Handler() {
+					public void handleMessage(Message msg) {
+//						fartAnimation.start();
+						sound.playSound(SOUND_LONG_FART);
+					}
+				};
 				fartAnimation.start();
-				sound.playSound(SOUND_LONG_FART);
+				if(task == null){
+					sound.playSound(SOUND_LONG_FART);
+				}
+				else{
+					task = new TimerTask(){
+						@Override
+						public void run() {
+							Message message = new Message();
+							message.what = Integer.parseInt(delayTime);
+							timerHandler.sendMessage(message);
+						}
+					};
+					timer.schedule(task, Integer.parseInt(delayTime)*1000);
+				}
 			}
 		});
 		
@@ -129,7 +184,6 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 							}
 							
 						};
-						timer.schedule(task, Integer.parseInt(delayTime)*1000);
 					}
 				});
 				builder.setNegativeButton(R.string.cancel, null);
