@@ -12,5 +12,9 @@
     <string name='normal_fart'>普通青年</string>
     <string name='long_fart'>2B青年</string>
     <string name='juicy_fart'>文艺青年</string>
+    <string name="alarm">警铃</string>
+    <string name='normal_alarm'>普通警铃</string>
+    <string name='long_alarm'>2B警铃</string>
+    <string name='juicy_alarm'>文艺警铃</string>
     <string name="white">#ffffff</string>
 </resources>
