@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.media.AudioManager;
 import android.media.SoundPool;
 
 /**
@@ -50,7 +52,7 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 	private Handler timerHandler;
 
 	private final Activity activity = this;
-	private String delayTime;
+	private int delayTime = 0;
 	
 	private final Handler mHandler = new MyHandler() ;
 	@Override
@@ -66,6 +68,8 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 		fartImages.setBackgroundResource(R.anim.firefox_animation);
 		fartAnimation = (AnimationDrawable) fartImages.getBackground();
 		
+		//To make media volume as default when user adjust volume
+		setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		
 		sound = new SoundEffect(this);
 		sound.getSoundPool().setOnLoadCompleteListener(this);
@@ -96,15 +100,16 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 						@Override
 						public void run() {
 							Message message = new Message();
-							message.what = Integer.parseInt(delayTime);
+							message.what = delayTime;
 							timerHandler.sendMessage(message);
 						}
 					};
-					timer.schedule(task, Integer.parseInt(delayTime)*1000);
+					timer.schedule(task, delayTime*1000);
 				}
 			}
 		});
-		
+
+		/*
 		juicy_fart.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				timerHandler = new Handler() {
@@ -130,6 +135,17 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 				}
 			}
 		});
+		*/
+		//test for count back
+		juicy_fart.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.putExtra("DelayTime", delayTime);
+				intent.setClass(activity, CountActivity.class);
+				activity.startActivity(intent);
+			}
+		});
+		
 		
 		long_fart.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -148,11 +164,11 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 						@Override
 						public void run() {
 							Message message = new Message();
-							message.what = Integer.parseInt(delayTime);
+							message.what = delayTime;
 							timerHandler.sendMessage(message);
 						}
 					};
-					timer.schedule(task, Integer.parseInt(delayTime)*1000);
+					timer.schedule(task, delayTime*1000);
 				}
 			}
 		});
@@ -168,7 +184,7 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 				builder.setPositiveButton(R.string.submit,
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int whichButton) {
-						delayTime = seconds.getText().toString();
+						delayTime = Integer.parseInt(seconds.getText().toString());
 						Log.i(TAG, "Get the delay time from Dialog...");
 						
 						if(task != null){
@@ -179,7 +195,7 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 							@Override
 							public void run() {
 								Message message = new Message();
-								message.what = Integer.parseInt(delayTime);
+								message.what = delayTime;
 								timerHandler.sendMessage(message);
 							}
 							
