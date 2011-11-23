@@ -21,6 +21,10 @@
         <activity android:name="com.diat.Fart1"
         		android:label="@string/fart">
         </activity>
+        
+        <activity android:name="com.diat.Alarm"
+        		android:label="@string/alarm">
+        </activity>
     	<uses-library android:name="android.test.runner" />
     </application>
     
