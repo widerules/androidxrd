@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg2"
+    android:weightSum="1">
+    <Button 
+    	android:id="@+id/normal_alarm" 
+    	android:text="@string/normal_alarm" 
+    	android:layout_height="wrap_content" 
+    	android:layout_weight="0.01" android:layout_width="92dp">
+    </Button>
+    <Button 
+    	android:id="@+id/juicy_alarm" 
+    	android:text="@string/juicy_alarm" 
+    	android:layout_height="wrap_content" 
+    	android:layout_weight="0.01" android:layout_width="92dp">
+    </Button>
+        <Button 
+    	android:id="@+id/long_alarm" 
+    	android:text="@string/long_alarm" 
+    	android:layout_height="wrap_content" 
+    	android:layout_weight="0.01" android:layout_width="92dp">
+    </Button>
+    <Button 
+    	android:id="@+id/delay" 
+    	android:text="@string/delay" 
+    	android:layout_height="wrap_content" 
+    	android:layout_weight="0.01"
+    	android:layout_width="91dp">
+    </Button>
+    <ImageView
+    	android:id="@+id/alarm_anim" 
+    	android:layout_height="148dp"
+    	android:layout_width="148dp"
+    />
+</LinearLayout>
