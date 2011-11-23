@@ -60,7 +60,7 @@ public class SoundEffect {
 	 * @param soundName an unique identifier to indicate a sound file, example SOUND_NORMAL_FART. 
 	 * @param resourceID resource ID in R.java, example R.raw.normal_fart.
 	 */
-	public void addSound(int soundName, int resourceID){
-		soundPoolMap.put(soundName,soundPool.load(context, resourceID, 1));
+	public void addSound(int soundID, int resourceID){
+		soundPoolMap.put(soundID,soundPool.load(context, resourceID, 1));
 	}
 }
