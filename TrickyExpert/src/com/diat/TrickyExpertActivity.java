@@ -19,7 +19,7 @@ public class TrickyExpertActivity extends Activity {
     
 	private Button fart;
 	private ImageButton banger;
-	private ImageButton alarm;
+	private Button alarm;
 	private ImageButton brokenscreen;
 	private ImageButton cockroach;
 	private ImageButton ghost;
@@ -30,7 +30,7 @@ public class TrickyExpertActivity extends Activity {
         
         fart = (Button) findViewById(R.id.fart);
         banger = (ImageButton) findViewById(R.id.banger);
-        alarm = (ImageButton) findViewById(R.id.alarm);
+        alarm = (Button) findViewById(R.id.alarm);
         brokenscreen = (ImageButton) findViewById(R.id.brokenscreen);
         cockroach = (ImageButton) findViewById(R.id.cockroach);
         ghost = (ImageButton) findViewById(R.id.ghost);
@@ -49,7 +49,7 @@ public class TrickyExpertActivity extends Activity {
         
         alarm.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-//				gotoAlarm();
+				gotoAlarm();
 			}
 		});
         
