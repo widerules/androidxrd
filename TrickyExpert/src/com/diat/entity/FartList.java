@@ -6,19 +6,19 @@ import java.util.List;
 import com.diat.R;
 
 /**
- * A List for storing fart information.
+ * A List for storing fart sound.
  * @author Victor
  *
  */
 public class FartList {
 
-	public List<Sound> getFartList(){
+	public static List<Sound> getFartList(){
 		List<Sound> fartList = new ArrayList<Sound>();
-		Sound fart1 = new Sound(R.id.normal_fart, "ÆÕÍ¨ÇàÄê");
+		Sound fart1 = new Sound(R.id.normal_fart, "æ™®é€šé’å¹´");
 		fartList.add(fart1);
-		Sound fart2 = new Sound(R.id.juicy_fart, "ÎÄÒÕÇàÄê");
+		Sound fart2 = new Sound(R.id.juicy_fart, "æ–‡è‰ºé’å¹´");
 		fartList.add(fart2);
-		Sound fart3 = new Sound(R.id.long_fart, "Éµ±ÆÇàÄê");
+		Sound fart3 = new Sound(R.id.long_fart, "SBé’å¹´");
 		fartList.add(fart3);
 		return fartList;
 	}
@@ -36,9 +36,9 @@ public class FartList {
 	
 	public static String[] getItemString(){
 		String[] arrayOfString = new String[3];
-		arrayOfString[0] = "ÆÕÍ¨ÇàÄê";
-		arrayOfString[1] = "ÎÄÒÕÇàÄê";
-		arrayOfString[2] = "Éµ±ÆÇàÄê";
+		arrayOfString[0] = "æ™®é€šé’å¹´";
+		arrayOfString[1] = "æ–‡è‰ºé’å¹´";
+		arrayOfString[2] = "SBé’å¹´";
 		return arrayOfString;
 	}
 	

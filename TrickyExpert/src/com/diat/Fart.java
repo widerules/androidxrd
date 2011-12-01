@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.diat.audio.SoundEffect;
+import com.diat.entity.FartList;
 import com.diat.R;
 
 import android.app.Activity;
@@ -141,6 +142,8 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.putExtra("DelayTime", delayTime);
+				intent.putExtra("SoundID", SOUND_JUICY_FART);
+				intent.putExtra("FartName", "Juicy Fart");
 				intent.setClass(activity, CountActivity.class);
 				activity.startActivity(intent);
 			}
