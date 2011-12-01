@@ -17,5 +17,6 @@
     <string name='normal_alarm'>普通警铃</string>
     <string name='long_alarm'>2B警铃</string>
     <string name='juicy_alarm'>文艺警铃</string>
+    <string name='countback'>倒计时</string>
     <string name="white">#ffffff</string>
 </resources>
