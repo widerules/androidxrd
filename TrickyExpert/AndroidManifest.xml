@@ -25,6 +25,10 @@
         <activity android:name="com.diat.Alarm"
         		android:label="@string/alarm">
         </activity>
+        
+        <activity android:name="com.diat.CountActivity"
+        		android:label="@string/countback">
+        </activity>
     	<uses-library android:name="android.test.runner" />
     </application>
     
