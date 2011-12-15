@@ -55,7 +55,7 @@ public class TrickyExpertActivity extends Activity {
         
         brokenscreen.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-//				gotoBrokenscreen();
+				gotoBrokenscreen();
 			}
 		});
         
@@ -88,7 +88,7 @@ public class TrickyExpertActivity extends Activity {
     }
     
     public void gotoBrokenscreen(){
-    	Intent intent = new Intent(this, Brokenscreen.class);
+    	Intent intent = new Intent(this, BrokenScreenInit.class);
     	startActivity(intent);
     }
     
