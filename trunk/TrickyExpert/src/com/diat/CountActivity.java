@@ -38,6 +38,7 @@ public class CountActivity extends Activity {
 		this.delaySeconds = intent.getIntExtra("DelayTime",m);
 		this.soundID = intent.getIntExtra("SoundID", m);
 		this.fartname = intent.getStringExtra("FartName");
+		this.countbackview.setText(String.valueOf(delaySeconds));
 		this.fartnameview.setText(fartname);
 		
 		Log.i(TAG, "Delay Seconds = " + String.valueOf(delaySeconds));
@@ -49,18 +50,19 @@ public class CountActivity extends Activity {
 		Handler localHandler1 = new Handler();
 		this.handler = localHandler1;
 		Runnable local1 = new Runnable(){
-
 			@Override
 			public void run() {
-				if(delaySeconds > 0){
-					sound.playSound(soundID);
+				CountActivity localAcitivity = (CountActivity) activity;
+				if(delaySeconds >= 0){
+					countbackview.setText(String.valueOf(delaySeconds));
 				}
 				
 				if(delaySeconds == 0){
-					TextView localview = countbackview;
-					localview.setText(fartname);
+					Intent intent = new Intent(localAcitivity, Fart.class);
+			    	sound.playSound(soundID);
+			    	startActivity(intent);
 				}
-//				CountActivity localAcitivity = (CountActivity) activity;
+//				
 				int count = delaySeconds - 1;
 				delaySeconds = count;
 				Handler innerHandler = handler;
@@ -73,5 +75,7 @@ public class CountActivity extends Activity {
 		
 		Handler localHandler2 = this.handler;
 	    Runnable localRunnable = this.updateThread;
+	    localHandler2.post(localRunnable);
+	    return;
 	}
 }
