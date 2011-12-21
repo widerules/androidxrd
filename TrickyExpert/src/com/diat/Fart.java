@@ -140,12 +140,16 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 		//test for count back
 		juicy_fart.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				Intent intent = new Intent();
-				intent.putExtra("DelayTime", delayTime);
-				intent.putExtra("SoundID", SOUND_JUICY_FART);
-				intent.putExtra("FartName", "Juicy Fart");
-				intent.setClass(activity, CountActivity.class);
-				activity.startActivity(intent);
+				if(delayTime > 0){
+					Intent intent = new Intent();
+					intent.putExtra("DelayTime", delayTime);
+					intent.putExtra("SoundID", SOUND_JUICY_FART);
+					intent.putExtra("FartName", "Juicy Fart");
+					intent.setClass(activity, CountActivity.class);
+					activity.startActivity(intent);
+				}
+				else
+					sound.playSound(SOUND_JUICY_FART);
 			}
 		});
 		
