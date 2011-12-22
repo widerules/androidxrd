@@ -12,11 +12,13 @@ public class Sound {
 	
 	private String soundName;
 
+	private int resourceID;
 	
-	public Sound(int soundID, String soundName) {
+	public Sound(int soundID, String soundName, int resourceID) {
 		super();
 		this.soundID = soundID;
 		this.soundName = soundName;
+		this.resourceID = resourceID;
 	}
 
 	public int getSoundID() {
@@ -25,5 +27,9 @@ public class Sound {
 
 	public String getSoundName() {
 		return soundName;
+	}
+	
+	public int getResourceID(){
+		return resourceID;
 	}
 }

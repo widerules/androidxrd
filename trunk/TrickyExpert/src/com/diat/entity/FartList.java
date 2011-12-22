@@ -14,22 +14,22 @@ public class FartList {
 
 	public static List<Sound> getFartList(){
 		List<Sound> fartList = new ArrayList<Sound>();
-		Sound fart1 = new Sound(R.id.normal_fart, "普通青年");
+		Sound fart1 = new Sound(1, "普通青年", R.raw.normal_fart);
 		fartList.add(fart1);
-		Sound fart2 = new Sound(R.id.juicy_fart, "文艺青年");
+		Sound fart2 = new Sound(2, "文艺青年", R.raw.juice_fart);
 		fartList.add(fart2);
-		Sound fart3 = new Sound(R.id.long_fart, "SB青年");
+		Sound fart3 = new Sound(3, "SB青年", R.raw.long_fart);
 		fartList.add(fart3);
 		return fartList;
 	}
 	
 	public static List<Sound> getFartListEn(){
 		List<Sound> fartList = new ArrayList<Sound>();
-		Sound fart1 = new Sound(R.id.normal_fart, "Normal Youth");
+		Sound fart1 = new Sound(1, "Normal Youth", R.raw.normal_fart);
 		fartList.add(fart1);
-		Sound fart2 = new Sound(R.id.juicy_fart, "Art Youth");
+		Sound fart2 = new Sound(2, "Art Youth", R.raw.juice_fart);
 		fartList.add(fart2);
-		Sound fart3 = new Sound(R.id.long_fart, "Stupid Youth");
+		Sound fart3 = new Sound(3, "Stupid Youth", R.raw.long_fart);
 		fartList.add(fart3);
 		return fartList;
 	}
