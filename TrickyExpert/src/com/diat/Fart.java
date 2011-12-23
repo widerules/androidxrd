@@ -40,9 +40,9 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 	
 	private String locale;
 	
-	public static final int SOUND_NORMAL_FART = 1;
-	public static final int SOUND_LONG_FART = 2;
-	public static final int SOUND_JUICY_FART = 3;
+//	public static final int SOUND_NORMAL_FART = 1;
+//	public static final int SOUND_LONG_FART = 2;
+//	public static final int SOUND_JUICY_FART = 3;
 	
 //	private Button normal_fart;
 //	private Button juicy_fart;
@@ -216,9 +216,9 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 
 							@Override
 							public void run() {
-								Message message = new Message();
-								message.what = delayTime;
-								timerHandler.sendMessage(message);
+//								Message message = new Message();
+//								message.what = delayTime;
+//								timerHandler.sendMessage(message);
 							}
 							
 						};
@@ -251,5 +251,13 @@ public class Fart extends Activity implements SoundPool.OnLoadCompleteListener{
 //		Message msg = mHandler.obtainMessage(sound.getPlaying());
 //		msg.arg1 = sampleId;
 //		mHandler.sendMessage(msg);
+	}
+	
+	/**
+	 * public interface for getting delay time for adapter. 
+	 * @return
+	 */
+	public int getDelayTime(){
+		return delayTime;
 	}
 }
