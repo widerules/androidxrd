@@ -54,7 +54,7 @@ public class BrokenScreenInit extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fart);
+		setContentView(R.layout.initbrokenscreen);
 		normal_fart = (Button) findViewById(R.id.normal_fart);
 		juicy_fart = (Button) findViewById(R.id.juicy_fart);
 		long_fart = (Button) findViewById(R.id.long_fart);
@@ -62,8 +62,8 @@ public class BrokenScreenInit extends Activity {
 //		start = (Button) findViewById(R.id.start);
 		delay = (Button) findViewById(R.id.delay);
 		
-		fartImages = (ImageView) findViewById(R.id.fart_anim);
-		fartImages.setBackgroundResource(R.anim.firefox_animation);
+//		fartImages = (ImageView) findViewById(R.id.fart_anim);
+//		fartImages.setBackgroundResource(R.anim.firefox_animation);
 //		fartAnimation = (AnimationDrawable) fartImages.getBackground();
 		
 		
