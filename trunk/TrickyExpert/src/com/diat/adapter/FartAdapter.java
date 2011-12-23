@@ -2,12 +2,15 @@ package com.diat.adapter;
 
 import java.util.List;
 
+import com.diat.CountActivity;
+import com.diat.Fart;
 import com.diat.R;
 import com.diat.audio.SoundEffect;
 import com.diat.entity.FartList;
 import com.diat.entity.Sound;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +24,14 @@ public class FartAdapter extends BaseAdapter {
 	private Context context;
 
 	private List<Sound> fartList;
+	private int delaytime;
+	private Fart fart;
 //	private String locale;
 	
 	public FartAdapter(Context paramContext, String paramString)
 	{
 		this.context = paramContext;
+		this.fart = (Fart) paramContext;
 	    soundManager = new SoundEffect(paramContext);
 	    if (paramString.equals("CN"))
 	    {
@@ -79,7 +85,8 @@ public class FartAdapter extends BaseAdapter {
 	    {
 	      this.button.setBackgroundResource(R.drawable.buttun_b);
 	      Button localButton2 = this.button;
-	      String str = ((Sound)this.fartList.get(position)).getSoundName();
+	      final String str = ((Sound)this.fartList.get(position)).getSoundName();
+	      final int id = ((Sound)this.fartList.get(position)).getSoundID();
 	      localButton2.setText(str);
 	      this.button.setTextColor(-1);
 //	      Button localButton3 = this.button;
@@ -95,7 +102,18 @@ public class FartAdapter extends BaseAdapter {
 //			    int i = pos;
 //			    int j;
 //			    j++;
-			    localSoundManager.playSound(pos + 1);
+				int delaySeconds = fart.getDelayTime();
+				if(delaySeconds > 0){
+					Intent intent = new Intent();
+					intent.putExtra("DelayTime", delaySeconds);
+					intent.putExtra("SoundID", id);
+					intent.putExtra("FartName", str);
+					intent.setClass(fart, CountActivity.class);
+					fart.startActivity(intent);
+				}
+				else{
+					localSoundManager.playSound(pos + 1);
+				}
 			}
 	    	  
 	      });

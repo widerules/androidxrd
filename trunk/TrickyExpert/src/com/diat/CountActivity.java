@@ -1,5 +1,6 @@
 package com.diat;
 
+import com.diat.adapter.FartAdapter;
 import com.diat.audio.SoundEffect;
 
 import android.app.Activity;
@@ -16,7 +17,6 @@ public class CountActivity extends Activity {
 	private int delaySeconds;
 	private int soundID;
 	private String fartname;
-	private SoundEffect sound;
 	
 	private TextView countbackview;
 	private TextView fartnameview;
@@ -45,29 +45,33 @@ public class CountActivity extends Activity {
 		Log.i(TAG, "Fart Name = " + fartname);
 		Log.i(TAG, "Sound ID = " + String.valueOf(soundID));
 		
-		sound = new SoundEffect(this);
-		
 		Handler localHandler1 = new Handler();
 		this.handler = localHandler1;
 		Runnable local1 = new Runnable(){
 			@Override
 			public void run() {
+				SoundEffect localSoundManager = FartAdapter.soundManager;
 				CountActivity localAcitivity = (CountActivity) activity;
 				if(delaySeconds >= 0){
 					countbackview.setText(String.valueOf(delaySeconds));
 				}
 				
 				if(delaySeconds == 0){
-					Intent intent = new Intent(localAcitivity, Fart.class);
-			    	sound.playSound(soundID);
-			    	startActivity(intent);
+					localSoundManager.playSound(soundID);
 				}
 //				
 				int count = delaySeconds - 1;
 				delaySeconds = count;
-				Handler innerHandler = handler;
-				Runnable innerRunnable  = updateThread;
-				innerHandler.postDelayed(innerRunnable, 1000L);
+				if(delaySeconds < 0){
+//					Intent intent = new Intent(localAcitivity, Fart.class);
+//			    	startActivity(intent);
+			    	activity.finish();
+				}
+				else{
+					Handler innerHandler = handler;
+					Runnable innerRunnable  = updateThread;
+					innerHandler.postDelayed(innerRunnable, 1000L);
+				}
 			}
 			
 		};
