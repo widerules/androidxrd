@@ -18,7 +18,7 @@ import android.widget.ImageButton;
 public class TrickyExpertActivity extends Activity {
     
 	private Button fart;
-	private ImageButton banger;
+	private Button banger;
 	private Button alarm;
 	private ImageButton brokenscreen;
 	private ImageButton cockroach;
@@ -29,7 +29,7 @@ public class TrickyExpertActivity extends Activity {
         setContentView(R.layout.main);
         
         fart = (Button) findViewById(R.id.fart);
-        banger = (ImageButton) findViewById(R.id.banger);
+        banger = (Button) findViewById(R.id.banger);
         alarm = (Button) findViewById(R.id.alarm);
         brokenscreen = (ImageButton) findViewById(R.id.brokenscreen);
         cockroach = (ImageButton) findViewById(R.id.cockroach);
@@ -43,7 +43,7 @@ public class TrickyExpertActivity extends Activity {
         
         banger.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-//				gotoBanger();
+				gotoBanger();
 			}
 		});
         
