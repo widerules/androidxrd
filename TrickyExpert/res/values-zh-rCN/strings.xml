@@ -20,5 +20,9 @@
     <string name='countback'>倒计时</string>
     <string name="white">#ffffff</string>
      <string name="brokenscreen">碎屏</string>
+     <string name="banger">鞭炮声</string>
+    <string name='first_banger'>鞭炮声</string>
+    <string name='second_banger'>又是鞭炮声</string>
+    <string name='third_banger'>还是鞭炮声</string>
      
 </resources>
