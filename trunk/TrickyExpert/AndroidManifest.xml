@@ -23,6 +23,10 @@
         		android:label="@string/fart">
         </activity>
         
+        <activity android:name="com.diat.Banger"
+        		android:label="@string/banger">
+        </activity>
+        
         <activity android:name="com.diat.Brokenscreen" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
         		android:label="@string/brokenscreen"  >
         </activity>
