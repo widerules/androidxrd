@@ -49,7 +49,6 @@ public class Banger extends Activity implements SoundPool.OnLoadCompleteListener
 	private final Activity activity = this;
 	private String delayTime;
 	
-	
 	private final Handler mHandler = new AlarmHandler() ;
 	
 	@Override
@@ -57,16 +56,15 @@ public class Banger extends Activity implements SoundPool.OnLoadCompleteListener
 		
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.alarm);
+		setContentView(R.layout.banger);
 		first_banger = (Button) findViewById(R.id.first_banger);
 		second_banger = (Button) findViewById(R.id.second_banger);
 		third_banger = (Button) findViewById(R.id.third_banger);
 		
 		delay = (Button) findViewById(R.id.delay);
-		bangerImages = (ImageView) findViewById(R.id.alarm_anim);
-//		alarmImages.setBackgroundResource(R.anim.alarm_animation);
+		bangerImages = (ImageView) findViewById(R.id.banger_anim);
+		bangerImages.setBackgroundResource(R.anim.alarm_animation);
 		bangerAnimation = (AnimationDrawable) bangerImages.getBackground();
-		
 		
 		sound = new SoundEffect(this);
 		sound.getSoundPool().setOnLoadCompleteListener(this);
@@ -86,7 +84,7 @@ public class Banger extends Activity implements SoundPool.OnLoadCompleteListener
 								sound.playSound(SOUND_FIRST_BANGER);
 							}
 						};
-						//alarmAnimation.start();
+						bangerAnimation.start();
 						if(task == null){
 							sound.playSound(SOUND_FIRST_BANGER);
 						}
