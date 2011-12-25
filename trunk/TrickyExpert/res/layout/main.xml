@@ -19,7 +19,7 @@
         <ImageButton android:id="@+id/brokenscreen" android:src="@drawable/brokenscreen" android:background="@null" android:clickable="true" android:layout_width="match_parent" android:layout_height="158dp"></ImageButton>
     </LinearLayout>
     <LinearLayout android:orientation="horizontal" android:weightSum="1" android:layout_width="match_parent" android:layout_height="190dp">
-        <ImageButton android:id="@+id/banger" android:src="@drawable/banger" android:background="@null" android:clickable="true" android:layout_width="126dp" android:layout_height="105dp"></ImageButton>
+        <Button android:id="@+id/banger" android:src="@drawable/banger" android:background="@null" android:clickable="true" android:layout_width="126dp" android:layout_height="105dp"></Button>
         <ImageButton android:id="@+id/cockroach" android:src="@drawable/cockroach" android:layout_width="wrap_content" android:background="@null" android:clickable="true" android:layout_height="207dp"></ImageButton>
         <Button android:id="@+id/alarm" android:drawableTop="@drawable/alarm" android:background="@null" android:layout_width="match_parent" android:layout_height="104dp"></Button>
     </LinearLayout>
