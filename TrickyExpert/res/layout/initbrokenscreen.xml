@@ -30,9 +30,5 @@
     	android:layout_weight="0.01"
     	android:layout_width="91dp">
     </Button>
-    <ImageView
-    	android:id="@+id/fart_anim" 
-    	android:layout_height="148dp"
-    	android:layout_width="148dp"
-    />
+    <ImageView android:layout_weight="0.01" android:id="@+id/fart_anim" android:layout_width="148dp" android:layout_height="148dp"></ImageView>
 </LinearLayout>

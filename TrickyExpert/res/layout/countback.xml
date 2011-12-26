@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RelativeLayout android:background="@drawable/bg_count" android:layout_width="fill_parent" android:layout_height="fill_parent"
+<RelativeLayout android:background="@drawable/count2" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView android:textSize="150.0dip" android:textColor="#ff663300" android:id="@+id/countback" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true"/>
     <TextView android:textSize="20.0dip" android:textColor="#ff663300" android:id="@+id/count_hint" android:paddingBottom="30.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/back" android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"/>
-    <TextView android:textSize="20.0dip" android:textStyle="bold" android:textColor="#ff663300" android:id="@+id/count_fart_name" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="null" android:layout_above="@id/count_hint" android:layout_centerHorizontal="true" />
+    <TextView android:textSize="20.0dip" android:textColor="#ff663300" android:layout_height="wrap_content" android:text="null" android:textStyle="bold" android:layout_width="wrap_content" android:id="@+id/count_fart_name" android:paddingBottom="10.0dip" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginTop="68dp"></TextView>
+    <ImageView android:layout_height="150.0dip" android:layout_width="150.0dip" android:layout_above="@+id/count_hint" android:layout_centerHorizontal="true" android:layout_marginBottom="82dp"></ImageView>
 </RelativeLayout>
