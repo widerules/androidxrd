@@ -63,7 +63,7 @@ public class Banger extends Activity implements SoundPool.OnLoadCompleteListener
 		
 		delay = (Button) findViewById(R.id.delay);
 		bangerImages = (ImageView) findViewById(R.id.banger_anim);
-		bangerImages.setBackgroundResource(R.anim.alarm_animation);
+		bangerImages.setBackgroundResource(R.anim.banger_animation);
 		bangerAnimation = (AnimationDrawable) bangerImages.getBackground();
 		
 		sound = new SoundEffect(this);
