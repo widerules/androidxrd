@@ -2,37 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/bg2"
+    android:layout_height="fill_parent" 
+    android:background="#ffffff"   
     android:weightSum="1">
-    <Button 
-    	android:id="@+id/first_banger" 
-    	android:text="@string/first_banger" 
-    	android:layout_height="wrap_content" 
-    	android:layout_weight="0.01" android:layout_width="92dp">
-    </Button>
-    <Button 
-    	android:id="@+id/second_banger" 
-    	android:text="@string/second_banger" 
-    	android:layout_height="wrap_content" 
-    	android:layout_weight="0.01" android:layout_width="92dp">
-    </Button>
-        <Button 
-    	android:id="@+id/third_banger" 
-    	android:text="@string/third_banger" 
-    	android:layout_height="wrap_content" 
-    	android:layout_weight="0.01" android:layout_width="92dp">
-    </Button>
-    <Button 
-    	android:id="@+id/delay" 
-    	android:text="@string/delay" 
-    	android:layout_height="wrap_content" 
-    	android:layout_weight="0.01"
-    	android:layout_width="91dp">
-    </Button>
-    <ImageView
-    	android:id="@+id/banger_anim" 
-    	android:layout_height="148dp"
-    	android:layout_width="148dp"
-    />
+    <TableLayout 
+     
+    android:layout_width="fill_parent"
+    android:orientation="vertical" android:layout_height="160dp" android:layout_weight="2.50">
+        <TableRow >
+            <Button android:text="@string/first_banger" android:layout_height="48dp" android:background="@drawable/button1" android:layout_width="wrap_content" android:id="@+id/first_banger"></Button>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/normal"></ImageView> 
+</TableRow>
+         <TableRow > <Button android:text="@string/second_banger" android:background="@drawable/button1" android:id="@+id/second_banger" android:layout_width="wrap_content" android:layout_height="48dp"></Button>
+         <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/art"></ImageView>
+         </TableRow>
+         <TableRow>
+             <Button android:text="@string/third_banger" android:layout_height="48dp" android:background="@drawable/button1" android:layout_width="wrap_content" android:id="@+id/third_banger"></Button>
+             <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/stupid"  ></ImageView>
+         </TableRow>
+       
+   </TableLayout>
+    <LinearLayout 
+    android:orientation="vertical" android:layout_width="match_parent" android:layout_height="261dp" android:weightSum="1">
+        <ImageView android:layout_weight="0.62" android:id="@+id/banger_anim" android:layout_width="222dp" android:layout_height="171dp" android:layout_marginLeft="50dp"></ImageView>
+    </LinearLayout>
+    <LinearLayout android:layout_width="fill_parent" android:orientation="horizontal" android:layout_height="wrap_content">
+        <Button android:text="@string/delay" android:background="@drawable/bottom2" android:id="@+id/delay" android:layout_width="match_parent" android:layout_height="69dp"></Button>
+    </LinearLayout>
 </LinearLayout>

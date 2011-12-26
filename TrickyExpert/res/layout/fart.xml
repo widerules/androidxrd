@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bg2"
+    android:background="#ffffff"
     android:weightSum="1">
     <GridView 
     	android:gravity="center" 
@@ -17,10 +17,10 @@
 
     <Button 
     	android:id="@+id/delay" 
-    	android:text="@string/delay" 
-    	android:layout_height="wrap_content" 
-    	android:layout_weight="0.01"
-    	android:layout_width="fill_parent"
+    	android:text="@string/delay"     	
+    	android:layout_width="match_parent" 
+    	android:layout_height="69dp"
+    	android:background="@drawable/bottom2"
     	android:layout_alignParentBottom="true">
     </Button>
 </RelativeLayout>
