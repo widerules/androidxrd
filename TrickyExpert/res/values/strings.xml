@@ -19,10 +19,10 @@
     <string name='juicy_alarm'>art alarm</string>
     <string name='countback'>count down</string>
     <string name="white">#ffffff</string>
-     <string name="brokenscreen">smash screen</string>
-      <string name="banger">banger</string>
+    <string name="brokenscreen">smash screen</string>
+    <string name="banger">banger</string>
     <string name='first_banger'>first banger</string>
     <string name='second_banger'>second_banger</string>
     <string name='third_banger'>third_banger</string>
-     
+    <string name='ghost'>Ghost</string>
 </resources>
