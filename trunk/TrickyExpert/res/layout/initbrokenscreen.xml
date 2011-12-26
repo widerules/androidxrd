@@ -2,33 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/bg2"
+    android:layout_height="fill_parent" 
+    android:background="#ffffff"   
     android:weightSum="1">
-    <Button 
-    	android:id="@+id/normal_fart" 
-    	android:text="@string/normal_fart" 
-    	android:layout_height="wrap_content" 
-    	android:layout_weight="0.01" android:layout_width="92dp">
-    </Button>
-    <Button 
-    	android:id="@+id/juicy_fart" 
-    	android:text="@string/juicy_fart" 
-    	android:layout_height="wrap_content" 
-    	android:layout_weight="0.01" android:layout_width="92dp">
-    </Button>
-        <Button 
-    	android:id="@+id/long_fart" 
-    	android:text="@string/long_fart" 
-    	android:layout_height="wrap_content" 
-    	android:layout_weight="0.01" android:layout_width="92dp">
-    </Button>
-    <Button 
-    	android:id="@+id/delay" 
-    	android:text="@string/delay" 
-    	android:layout_height="wrap_content" 
-    	android:layout_weight="0.01"
-    	android:layout_width="91dp">
-    </Button>
-    <ImageView android:layout_weight="0.01" android:id="@+id/fart_anim" android:layout_width="148dp" android:layout_height="148dp"></ImageView>
+    <TableLayout 
+     
+    android:layout_width="fill_parent"
+    android:orientation="vertical" android:layout_height="160dp" android:layout_weight="2.50">
+        <TableRow >
+            <Button android:text="@string/normal_fart" android:layout_height="48dp" android:background="@drawable/button1" android:layout_width="wrap_content" android:id="@+id/normal_fart"></Button>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/normal"></ImageView> 
+</TableRow>
+         <TableRow > <Button android:text="@string/juicy_fart" android:background="@drawable/button1" android:id="@+id/juicy_fart" android:layout_width="wrap_content" android:layout_height="48dp"></Button>
+         <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/art"></ImageView>
+         </TableRow>
+         <TableRow>
+             <Button android:text="@string/long_fart" android:layout_height="48dp" android:background="@drawable/button1" android:layout_width="wrap_content" android:id="@+id/long_fart"></Button>
+             <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/stupid"  ></ImageView>
+         </TableRow>
+       
+   </TableLayout>
+    <LinearLayout 
+    android:orientation="vertical" android:layout_width="match_parent" android:layout_height="261dp" android:weightSum="1">
+        <Button android:id="@+id/delay" android:background="@drawable/bottom2" android:text="@string/delay" android:layout_width="match_parent" android:layout_height="69dp"></Button>
+    </LinearLayout>
+    <LinearLayout android:layout_width="fill_parent" android:orientation="horizontal" android:layout_height="wrap_content">
+    </LinearLayout>
 </LinearLayout>
