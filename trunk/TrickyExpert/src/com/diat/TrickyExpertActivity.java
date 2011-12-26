@@ -67,7 +67,7 @@ public class TrickyExpertActivity extends Activity {
         
         ghost.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-//				gotoGhost();
+				gotoGhost();
 			}
 		});
     }

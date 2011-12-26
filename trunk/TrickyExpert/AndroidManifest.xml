@@ -42,6 +42,17 @@
         <activity android:name="com.diat.CountActivity"
         		android:label="@string/countback">
         </activity>
+        
+        <activity android:name="com.diat.Ghost"
+        		android:label="@string/ghost">
+        </activity>
+        
+        <activity android:name="com.diat.GhostShow"
+        		android:label="@string/ghost">
+        </activity>
+        
+        <receiver android:name="com.diat.AlarmReceiver" android:enabled="true">
+        </receiver>
     	<uses-library android:name="android.test.runner" />
     </application>
     
