@@ -53,6 +53,9 @@
         
         <receiver android:name="com.diat.AlarmReceiver" android:enabled="true">
         </receiver>
+        <receiver android:name="com.diat.BrokenscreenAlarmReciever" android:enabled="true">
+        </receiver>
+        
     	<uses-library android:name="android.test.runner" />
     </application>
     

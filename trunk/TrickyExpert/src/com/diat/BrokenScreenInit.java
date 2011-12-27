@@ -1,24 +1,18 @@
 package com.diat;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-
-import com.diat.audio.SoundEffect;
 
 /**
  * Play sound using SoundPool
@@ -29,80 +23,37 @@ import com.diat.audio.SoundEffect;
 public class BrokenScreenInit extends Activity {
 
 	public static final String TAG = "Tricky Expert";
-	public static final int SOUND_NORMAL_FART = 1;
-	public static final int SOUND_LONG_FART = 2;
-	public static final int SOUND_JUICY_FART = 3;
 	
-	private Button normal_fart;
-	private Button juicy_fart;
-	private Button long_fart;
-//	private Button start;
+	private Button start;
 	private Button delay;
-//	private Button cancel;
-	private ImageView fartImages;
-//	private AnimationDrawable fartAnimation;
-	private SoundEffect sound;
 	
-	private Timer timer;
-	private TimerTask task;
-	private Handler timerHandler;
-
 	private final Activity activity = this;
-	private String delayTime;
+	private int delayTime = 0;
 	
-	private final Handler mHandler = new MyHandler() ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.initbrokenscreen);
-		normal_fart = (Button) findViewById(R.id.normal_fart);
-		juicy_fart = (Button) findViewById(R.id.juicy_fart);
-		long_fart = (Button) findViewById(R.id.long_fart);
+		start = (Button) findViewById(R.id.broke_start);
+		delay = (Button) findViewById(R.id.broke_delay);
 		
-//		start = (Button) findViewById(R.id.start);
-		delay = (Button) findViewById(R.id.delay);
-		
-//		fartImages = (ImageView) findViewById(R.id.fart_anim);
-//		fartImages.setBackgroundResource(R.anim.firefox_animation);
-//		fartAnimation = (AnimationDrawable) fartImages.getBackground();
-		
-		
-//		sound = new SoundEffect(this);
-//		sound.getSoundPool().setOnLoadCompleteListener(this);
-//		sound.addSound(SOUND_NORMAL_FART, R.raw.normal_fart);
-//		sound.addSound(SOUND_LONG_FART, R.raw.long_fart);
-//		sound.addSound(SOUND_JUICY_FART, R.raw.juice_fart);
-
-		//If there is a requirement that every different sound needs different delay time,
-		//we can set each sound a timer to implement it.
-		timer = new Timer();
-		
-		normal_fart.setOnClickListener(new View.OnClickListener() {
+		start.setOnClickListener(new View.OnClickListener() {
+			Intent intent = new Intent(activity, Brokenscreen.class);
 			public void onClick(View v) {
-				timerHandler = new Handler() {
-					public void handleMessage(Message msg) {
-//						fartAnimation.start();
-//						sound.playSound(SOUND_NORMAL_FART);
-						gotoBrokenscreen();
-					}
-				};
-//				fartAnimation.start();
-				if(task == null){
-//					sound.playSound(SOUND_NORMAL_FART);
-					gotoBrokenscreen();
+				Long currentTime = System.currentTimeMillis();
+				if(delayTime == 0){
+					startActivity(intent);
 				}
 				else{
-					//schedule method in Timer can only execute one task for one time,
-					//so we need to create another same task.
-					task = new TimerTask(){
-						@Override
-						public void run() {
-							Message message = new Message();
-							message.what = Integer.parseInt(delayTime);
-							timerHandler.sendMessage(message);
-						}
-					};
-					timer.schedule(task, Integer.parseInt(delayTime)*1000);
+					Intent in = new Intent(activity,BrokenscreenAlarmReciever.class);
+					PendingIntent pIntent = PendingIntent.getBroadcast(activity, 0, in, 0);
+					AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+					am.set(AlarmManager.RTC_WAKEUP, (currentTime + delayTime*1000L), pIntent); 
+
+					Intent intent1 = new Intent(Intent.ACTION_MAIN);  
+					intent1.addCategory(Intent.CATEGORY_HOME);  
+					intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  
+					startActivity(intent1); 
 				}
 			}
 		});
@@ -118,22 +69,14 @@ public class BrokenScreenInit extends Activity {
 				builder.setPositiveButton(R.string.submit,
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int whichButton) {
-						delayTime = seconds.getText().toString();
-						Log.i(TAG, "Get the delay time from Dialog...");
-						
-						if(task != null){
-							task.cancel();
+						//there is a exception here if user leave the edit field blank and click OK. still unresolved.
+						if(seconds.getText() == null || seconds.getText().toString() == null){
+							delayTime = 0;
 						}
-						task = new TimerTask(){
-
-							@Override
-							public void run() {
-								Message message = new Message();
-								message.what = Integer.parseInt(delayTime);
-								timerHandler.sendMessage(message);
-							}
-							
-						};
+						else{
+							delayTime = Integer.parseInt(seconds.getText().toString());
+						}
+						Log.i(TAG, "Get the delay time from Dialog..." + seconds.getText().toString());
 					}
 				});
 				builder.setNegativeButton(R.string.cancel, null);
@@ -142,34 +85,8 @@ public class BrokenScreenInit extends Activity {
 		});
 	}
 	
-    public void gotoBrokenscreen(){
-    	Intent intent = new Intent(this, Brokenscreen.class);
-    	startActivity(intent);
-    }
-	
-	
 	@Override
 	protected void onDestroy() {
-//		sound.getSoundPool().release();
-//		sound.getSoundPool().stop(sound.getPlaying());
 		super.onDestroy();
 	}
-	
-	private class MyHandler extends Handler{
-		@SuppressWarnings("unused")
-		public void handlerMessage(Message msg){
-//			sound.playSound(msg.what);
-			gotoBrokenscreen();
-		}
-	}
-//	/**
-//	 * The below described issue is still not resolved.
-//	 * 11-08 15:47:56.402: ERROR/MP3Extractor(34): Unable to resync. Signalling end of stream.
-//	 * 11-08 15:47:57.882: WARN/SoundPool(2076):   sample 4 not READY
-//	 */
-//	public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-//		Message msg = mHandler.obtainMessage(sound.getPlaying());
-//		msg.arg1 = sampleId;
-//		mHandler.sendMessage(msg);
-//	}
 }
