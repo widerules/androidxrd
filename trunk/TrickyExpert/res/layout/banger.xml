@@ -6,21 +6,20 @@
     android:background="#ffffff"   
     android:weightSum="1">
     <TableLayout 
-     
     android:layout_width="fill_parent"
     android:orientation="vertical" android:layout_height="160dp" android:layout_weight="2.50">
         <TableRow >
             <Button android:text="@string/first_banger" android:layout_height="48dp" android:background="@drawable/button1" android:layout_width="wrap_content" android:id="@+id/first_banger"></Button>
             <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/normal"></ImageView> 
 </TableRow>
-         <TableRow > <Button android:text="@string/second_banger" android:background="@drawable/button1" android:id="@+id/second_banger" android:layout_width="wrap_content" android:layout_height="48dp"></Button>
+         <!--  <TableRow > <Button android:text="@string/second_banger" android:background="@drawable/button1" android:id="@+id/second_banger" android:layout_width="wrap_content" android:layout_height="48dp"></Button>
          <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/art"></ImageView>
          </TableRow>
          <TableRow>
              <Button android:text="@string/third_banger" android:layout_height="48dp" android:background="@drawable/button1" android:layout_width="wrap_content" android:id="@+id/third_banger"></Button>
              <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/stupid"  ></ImageView>
          </TableRow>
-       
+       -->
    </TableLayout>
     <LinearLayout 
     android:orientation="vertical" android:layout_width="match_parent" android:layout_height="261dp" android:weightSum="1">

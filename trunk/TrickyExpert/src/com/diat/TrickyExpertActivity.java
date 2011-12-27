@@ -21,7 +21,7 @@ public class TrickyExpertActivity extends Activity {
 	private Button banger;
 	private Button alarm;
 	private ImageButton brokenscreen;
-	private ImageButton cockroach;
+//	private ImageButton cockroach;
 	private ImageButton ghost;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class TrickyExpertActivity extends Activity {
         banger = (Button) findViewById(R.id.banger);
         alarm = (Button) findViewById(R.id.alarm);
         brokenscreen = (ImageButton) findViewById(R.id.brokenscreen);
-        cockroach = (ImageButton) findViewById(R.id.cockroach);
+//        cockroach = (ImageButton) findViewById(R.id.cockroach);
         ghost = (ImageButton) findViewById(R.id.ghost);
         
         fart.setOnClickListener(new View.OnClickListener() {
@@ -59,11 +59,11 @@ public class TrickyExpertActivity extends Activity {
 			}
 		});
         
-        cockroach.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-//				gotoCockroach();
-			}
-		});
+//        cockroach.setOnClickListener(new View.OnClickListener() {
+//			public void onClick(View v) {
+////				gotoCockroach();
+//			}
+//		});
         
         ghost.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -92,10 +92,10 @@ public class TrickyExpertActivity extends Activity {
     	startActivity(intent);
     }
     
-    public void gotoCockroach(){
-    	Intent intent = new Intent(this, Cockroach.class);
-    	startActivity(intent);
-    }
+//    public void gotoCockroach(){
+//    	Intent intent = new Intent(this, Cockroach.class);
+//    	startActivity(intent);
+//    }
     
     public void gotoGhost(){
     	Intent intent = new Intent(this, Ghost.class);

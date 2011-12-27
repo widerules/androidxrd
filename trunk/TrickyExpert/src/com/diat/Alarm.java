@@ -1,6 +1,5 @@
 package com.diat;
 
-import java.util.Timer;
 import java.util.TimerTask;
 
 import com.diat.audio.SoundEffect;
@@ -81,8 +80,8 @@ public class Alarm extends Activity implements SoundPool.OnLoadCompleteListener{
 //						sound.playSound(SOUND_NORMAL_ALARM);
 //					}
 //				};
-				alarmAnimation.start();
 				if(delayTime == 0){
+					alarmAnimation.start();
 					sound.playSound(SOUND_NORMAL_ALARM);
 				}
 				else{
@@ -91,6 +90,7 @@ public class Alarm extends Activity implements SoundPool.OnLoadCompleteListener{
 					task = new TimerTask(){
 						@Override
 						public void run() {
+							alarmAnimation.start();
 							sound.playSound(SOUND_NORMAL_ALARM);
 						}
 					};
@@ -110,14 +110,15 @@ public class Alarm extends Activity implements SoundPool.OnLoadCompleteListener{
 //						sound.playSound(SOUND_JUICY_ALARM);
 //					}
 //				};
-				alarmAnimation.start();
 				if(delayTime == 0){
+					alarmAnimation.start();
 					sound.playSound(SOUND_JUICY_ALARM);
 				}
 				else{
 					task = new TimerTask(){
 						@Override
 						public void run() {
+							alarmAnimation.start();
 							sound.playSound(SOUND_JUICY_ALARM);
 						}
 					};
@@ -136,14 +137,16 @@ public class Alarm extends Activity implements SoundPool.OnLoadCompleteListener{
 //						sound.playSound(SOUND_LONG_ALARM);
 //					}
 //				};
-				alarmAnimation.start();
+				
 				if(delayTime == 0){
+					alarmAnimation.start();
 					sound.playSound(SOUND_LONG_ALARM);
 				}
 				else{
 					task = new TimerTask(){
 						@Override
 						public void run() {
+							alarmAnimation.start();
 							sound.playSound(SOUND_LONG_ALARM);
 						}
 					};
