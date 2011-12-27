@@ -5,12 +5,8 @@
     android:layout_height="fill_parent" 
     android:background="#ffffff"   
     android:weightSum="1">
-    <Button android:text="@string/start" 
-    		android:layout_height="48dp" 
-    		android:layout_width="wrap_content" 
-    		android:id="@+id/broke_start"></Button>
-    <Button android:text="@string/delay" 
-    		android:layout_height="48dp" 
-    		android:layout_width="wrap_content" 
-    		android:id="@+id/broke_delay"></Button>
+    <AbsoluteLayout android:layout_height="fill_parent" android:layout_width="fill_parent">
+	<Button android:id="@+id/broke_delay" android:layout_height="69dp" android:background="@drawable/bottom2" android:text="@string/delay" android:layout_width="match_parent" android:layout_x="1dp" android:layout_y="434dp"></Button>
+	<Button android:id="@+id/broke_start" android:layout_height="wrap_content" android:paddingTop="10.0dip" android:text="@string/start" android:drawableTop="@drawable/brokenscreen_logo" android:layout_width="wrap_content" android:layout_x="112dp" android:layout_y="185dp"></Button>
+	</AbsoluteLayout>
 </LinearLayout>
